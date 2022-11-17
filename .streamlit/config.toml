@@ -1,6 +1,6 @@
 [theme]
 base='light'
-primaryColor='#830080'
-secondaryBackgroundColor='#bffcf9'
-textColor='#51424f'
+primaryColor='#7E22CE'
+secondaryBackgroundColor='#CFFAFE'
+textColor='#1E293B'
 font='monospace'
