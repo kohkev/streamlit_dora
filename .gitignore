@@ -1,13 +1,5 @@
-# Ignore everything in repository root 
-/*
-
 # Folders and files to not ignore
-!/app
-!/data
-!/img
-!/.gitignore
-!/LICENSE
-!/README.md
+!/streamlit_dora
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
