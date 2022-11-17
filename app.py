@@ -2,7 +2,6 @@
 import numpy as np 
 import pandas as pd
 import streamlit as st
-import matplotlib
 from xgboost import XGBClassifier, plot_importance
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
@@ -22,10 +21,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.20, rand
 #model = MLPClassifier(activation = 'relu', hidden_layer_sizes = 10000, max_iter = 1000, random_state = 1992)
 model = XGBClassifier(n_estimators=200, max_depth=25, learning_rate=0.1, subsample=0.5)
 model.fit(X_train, y_train)
-
-### !!! EVTL. LÖSCHEN, DA PREDICT_PROBA SICH HIER AUF TEST SET UND NICHT USERDATEN BEZIEHT? !!!
-
-y_pred = (model.predict_proba(X_test)[:,1] >= 0.3).astype(bool) # Set threshold as 0.3
 
 st.set_page_config(page_title='dora', page_icon='img/favicon.png', layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
@@ -100,6 +95,8 @@ with tab3:
 
         # Plot boxplot showing df value distribution
         df.plot(kind='box', figsize=(20,10))
+
+        y_pred = (model.predict_proba(X_test)[:,1] >= 0.3).astype(bool) # Set threshold as 0.3
 
         test_accuracy = accuracy_score(y_test, y_pred)
         print('Accuracy score: ', test_accuracy)
