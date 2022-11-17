@@ -27,7 +27,7 @@ model.fit(X_train, y_train)
 
 y_pred = (model.predict_proba(X_test)[:,1] >= 0.3).astype(bool) # Set threshold as 0.3
 
-st.set_page_config(page_title='dora', page_icon='img/favicon.png', layout="wide", initial_sidebar_state="auto", menu_items=None)
+st.set_page_config(page_title='dora', page_icon='img/favicon.png', layout="wide", initial_sidebar_state="expanded", menu_items=None)
 
 st.title('Diabetes Occurrence Risk Assessment')
 st.subheader('Estimate your risk of developing Type II Diabetes based on your biomarker values, using a trusted machine learning algorithm.')
@@ -78,7 +78,7 @@ with tab2:
     st.subheader('Which factors contribute most to your risk of Type II Diabetes?')
 
     # Plot most important features in desc order by 
-    plot_feats = plot_importance(model, importance_type='gain', title=None, show_values=False, xlabel='Knowledge Gain', ylabel='Influencing Factor', color='#830080', grid=False)
+    plot_feats = plot_importance(model, importance_type='gain', title=None, show_values=False, xlabel='Knowledge Gain', ylabel='Influencing Factor', color='#7E22CE', grid=False)
     st.pyplot(plot_feats.figure)
 
 with tab3:
